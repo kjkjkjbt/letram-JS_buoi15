@@ -220,38 +220,47 @@ function calculateTax() {
 
 // bài tập: TÍNH TIỀN CAP 
 
-document.getElementById ('btn4').onlick = tinhHd () 
-function showketnoi () {
-  var loai_kh = document.getElementById('loai_kh').value ;
-  if (loai_kh== "nha_dan"  ) {
-    document.getElementById ('soKetNoi').style.display='none';
-    document.getElementById ('soKetnoi').style.display ='none';
-  } else if (loai_kh== 'doanh_nghiep') {
-    document.getElementById('soKetNoi').style.display ='block';
-    document.getElementById ('soKetNoi').style.display ='block';
-  }
-}
+document.getElementById('btn4').addEventListener('click', tinhHoaDon);
+function tinhHoaDon() {
+    var maKH = getValueById("maKH");
+    var loaiKH = getSelectedValue("loaiKH");
+    var soKetNoi = parseFloat(getValueById("soKetNoi"));
+    var soKenhCaoCap = parseFloat(getValueById("soKenhCaoCap"));
+    var phiXuLyHD = 0;
+    var phiDichVuCB = 0;
+    var phiThueKenhCC = 0;
+    if (loaiKH === "nhaDan") {
+        phiXuLyHD = 4.5;
+        phiDichVuCB = 20.5;
+        phiThueKenhCC = 7.5 * soKenhCaoCap;
+        disableElement("soKetNoi");
+    } else if (loaiKH === "doanhNghiep") {
+        phiXuLyHD = 15;
+        phiDichVuCB = 75 + Math.max(0, soKetNoi - 10) * 5;
+        phiThueKenhCC = 50 * soKenhCaoCap;
 
-function tinhHd () {
-  var loai_kh= document.getElementById ('loai_kh').value;
-  var soketNoi =0;
-  if (loai_kh== "doanh_nghiep") {
-    soKetNoi = parseInt (document.getElementById('soKetNoi').value);
-    var phiXuliHd =15;
-    var phiDv =75;
-    var phiThueKenhCc =50;
-    var tongTienCoc= phiXuliHd+ phiDv +phiThueKenhCc* document.getElementById(soKenhCaoCap).value ;
-
-    if (soKetNoi >10) {
-      tongTienCoc += (soketNoi-10)*5;
-    } else if (loai_kh== 'nha_dan'){
-      var phiXuliHd =4.5;
-      var phiDv = 20.5;
-      var phiThueKenhCc =7.5;
-      var tongTienCoc = phiXuliHd + phiDv+ phiThueKenhCc* document.getElementById('soKenhCaoCap').value ;
+        var tongTien = phiXuLyHD + phiDichVuCB + phiThueKenhCC;
+        displayResult(maKH, tongTien);
     }
-  }
 
+    function disableElement(elementId) {
+        var element = document.getElementById(elementId);
+        if (element) {
+            element.disabled = true;
+        }
+    }
+    function getValueById(elementId) {
+        var element = document.getElementById(elementId);
+        return element ? element.value : 0;
+    }
 
-document.getElementById('kq4').innerHTML ="tổng tiền cap của bạn là: "  + tongTienCoc + "$";
+    // function getSelectedValue(elementId) {
+    //     var element = document.getElementById(elementId);
+    //     return element ? element.options[element.selectedIndex].value : "";
+    // }
+
+    function displayResult(maKH, tongTien) {
+        alert("Mã khách hàng: " + maKH + "Tổng tiền phải trả: " + tongTien.toFixed(2) + "$");
+        document.getElementById('kq4').innerHTML = tongTien.toFixed(2);
+    }
 }

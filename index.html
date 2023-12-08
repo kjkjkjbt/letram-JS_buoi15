@@ -93,30 +93,29 @@
 
 <div class="container">
   <h2> TÍNH TIỀN CAP CHO KH DOANH NGHIỆP/ KH CÁ NHÂN </h2>
+  <label for="loaiKH"> Chọn loại khách hàng:</label>
+  <select id="loaiKH">
+    <option value="nhaDan" id="nhaDan">Nhà Dân</option>
+    <option value="doanhNghiep" id="doanhNghiep">Doanh Nghiệp</option>
+  </select>
   <div class="form-group">
-    <label for="ma_kh">mã khách hàng</label>
-    <input type="text" name="" id="maKh" class="form-control" placeholder="ma_kh" aria-describedby="helpId">
+    <label for="">Nhập mã Khách hàng</label>
+    <input type="text" class="form-control" name="" id="maKH" aria-describedby="helpId"
+      placeholder="Vui lòng nhập mã khách hàng" />
   </div>
-  <label for="loai_kh">loại khách hàng</label>
-    <input type="text" name="" id="loaiKh" class="form-control" placeholder="loai_kh" aria-describedby="helpId">
-    <select name="loai_kh" id="loai_kh"> 
-      <option value="nha_dan"> nhà dân </option>
-      <option value="doanh_nghiep"> doanh nghiệp </option>
-    </select>
-
-    <label for="soKetNoi"> số kết nối </label>
-    <input type="text" name="" id="soKetNoi" class="form-control" placeholder="so_ket_noi" aria-describedby="helpId">
+  <div class="form-group">
+    <label for="">Nhập số kênh Cao cấp</label>
+    <input type="text" class="form-control" name="" id="soKenhCaoCap" aria-describedby="helpId"
+      placeholder="Nhấp số kênh cao cấp" />
   </div>
-
-  <label for="soKenhCaoCap"> số kênh cao cấp </label>
-    <input type="text" name="" id="soKenhcc" class="form-control" placeholder="soKenhCaoCap" aria-describedby="helpId">
-  
+  <div class="form-group " id="soKetNoi">
+    <label for="">Nhập số kết nối thêm</label>
+    <input type="text" class="form-control" name="" id="soKetNoi" aria-describedby="helpId"
+      placeholder="Nhấp số kết nối" />
   </div>
-
-  <button class="btn btn-success" id="btn4">tính hóa đơn </button>
-  <div  class="ketQua4" id="kq4">kết quả </div>
-
-</div>    
+  <button class="btn btn-dark" id="btn4">Tính tiền cáp</button>
+  <div id="kq4" class="p-3 bg-success text-white"></div>
+</div> 
 
 
       
