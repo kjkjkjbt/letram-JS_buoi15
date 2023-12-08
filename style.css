@@ -1,0 +1,46 @@
+/* reset css */
+.container {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+  }
+
+  .input {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid gray;
+  }
+
+  .button {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .result {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid gray;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  }
+
+  

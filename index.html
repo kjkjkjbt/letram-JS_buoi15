@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <>
+    <title> BÀI TẬP JS-BUỔI 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- main css -->
+
+    <link rel="stylesheet"  href="./style.css"> 
+
+
+  </head>
+  <body>
+    <!-- BÀI TẬP QUẢN LÝ TUYỂN SINH -->
+    <div class="container mt-3">
+        <h2> QUẢN LÝ TUYỂN SINH </h2>
+        <form>
+            <!-- nhập điểm  -->
+            <p>Nhập điểm chuẩn: <input type="number" id="diemChuan" ></p>
+            <p>Nhập điểm toán: <input type="number" id="diemToan" ></p>
+            <p>Nhập điểm lý: <input type="number" id="diemLy" ></p>
+            <p>Nhập điểm hóa: <input type="number" id="diemHoa" ></p>
+
+            <!-- khu vực -->
+            <p>Chọn khu vực: 
+              <select id="khuVuc">
+                <option value="X">Không thuộc khu vực ưu tiên</option>
+                <option value="A">Khu vực A</option>
+                <option value="B">Khu vực B</option>
+                <option value="C">Khu vực C</option>
+            </select></p>
+
+            <!-- đối tượng  -->
+            <p>Chọn đối tượng: 
+              <select id="doiTuong">
+                <option value="0">Không thuộc đối tượng ưu tiên</option>
+                <option value="1">Đối tượng 1</option>
+                <option value="2">Đối tượng 2</option>
+                <option value="3">Đối tượng 3</option>
+            </select></p>
+            <p><button type="button"  class="btn btn-primary text-white  p-3"     onclick="checkResult()"> Kiểm tra</button></p>
+        </form>
+        <p id="ketQua"></p>
+        <p id="diemTongKet"></p>
+    </div>
+
+    <!-- BÀI TẬP: TÍNH TIỀN ĐIỆN -->
+
+    <div class="container">
+      <h2>TIỀN ĐIỆN</h2>
+      <form>
+        <label for="name"> Tên: </label>
+      <input class="input" type="text" id="name" placeholder="YOUR NAME HERE " />
+    
+      <label for="kw"> Số KW tiêu thụ: </label>
+      <input class="input" type="number" id="kw" placeholder="INSERT YOUR ELECTRIC USAGE (KW)" />
+      <input class="btn btn-primary" type="button" value="Tính tiền" onclick="calculate()" />
+       
+      <label for="result"> Tiền điện: </label>
+      <input class="result" type="text" id="result"  />
+    
+      </form>
+      
+    </div>
+
+    <!-- BÀI TẬP: TÍNH THUẾ THU NHẬP CÁ NHÂN -->
+
+    <div class="container mt-5">
+      <h2>BÀI 3 TÍNH THUẾ THU NHẬP CÁ NHÂN</h2>
+      <div class="form-group">
+        <label for="">tổng số tiền thu nhập</label>
+        <input type="text" class="form-control" name="" id="TongThuNhap" aria-describedby="helpId"
+          placeholder="Vui lòng nhập số tiền thu nhập trong năm" />
+      </div>
+      <div class="form-group">
+        <label for="">số người phụ thuộc</label>
+        <input type="text" class="form-control" name="" id="soNguoiPhuThuoc" aria-describedby="helpId"
+          placeholder="Vui lòng nhập số người phụ thuộc" />
+      </div>
+      <button class="btn btn-dark" id="btn1">Tiền thuế phải nộp</button>
+      <div id="kq3" class="p-3 bg-success text-white"></div>
+    </div>
+    <br>
+  
+    
+    
+     <!-- bài tập:   TÍNH TIỀN CÁP -->
+
+<div class="container">
+  <h2> TÍNH TIỀN CAP CHO KH DOANH NGHIỆP/ KH CÁ NHÂN </h2>
+  <div class="form-group">
+    <label for="ma_kh">mã khách hàng</label>
+    <input type="text" name="" id="maKh" class="form-control" placeholder="ma_kh" aria-describedby="helpId">
+  </div>
+  <label for="loai_kh">loại khách hàng</label>
+    <input type="text" name="" id="loaiKh" class="form-control" placeholder="loai_kh" aria-describedby="helpId">
+    <select name="loai_kh" id="loai_kh"> 
+      <option value="nha_dan"> nhà dân </option>
+      <option value="doanh_nghiep"> doanh nghiệp </option>
+    </select>
+
+    <label for="soKetNoi"> số kết nối </label>
+    <input type="text" name="" id="soKetNoi" class="form-control" placeholder="so_ket_noi" aria-describedby="helpId">
+  </div>
+
+  <label for="soKenhCaoCap"> số kênh cao cấp </label>
+    <input type="text" name="" id="soKenhcc" class="form-control" placeholder="soKenhCaoCap" aria-describedby="helpId">
+  
+  </div>
+
+  <button class="btn btn-success" id="btn4">tính hóa đơn </button>
+  <div  class="ketQua4" id="kq4">kết quả </div>
+
+</div>    
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- MAIN JS -->
+
+    <script src="./index.js"></script>
+
+
+  </body>
+</html>
